@@ -11,11 +11,11 @@
         <table class="table" cellspacing="0">
           <thead>
             <tr>
-              <th style="text-align:center" v-for="item in name">{{item}}</th>
+              <th v-cloak v-for="item in name">{{item}}</th>
             </tr> 
           </thead>
           <tbody>
-            <tr v-for="item in list">
+            <tr v-cloak v-for="item in list">
               <td>{{item.date}}</td>
               <td>{{item.memberMark}}</td>
               <td>{{item.sellerMark}}</td>
