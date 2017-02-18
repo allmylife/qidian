@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="app">
+        <h3 class="title">起点联盟</h3>
+        <table class="table" cellspacing="0">
+          <thead>
+            <tr>
+              <th style="text-align:center" v-for="item in name">{{item}}</th>
+            </tr> 
+          </thead>
+          <tbody>
+            <tr v-for="item in list">
+              <td>{{item.date}}</td>
+              <td>{{item.memberMark}}</td>
+              <td>{{item.sellerMark}}</td>
+              <td>{{item.member}}</td>
+              <td>{{item.seller}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+          name: [],
+          list: []
+        }
+    })
+
+    function getData() {   
+        $.getJSON("data.json",function(res){ 
+            vm.name = res.name;
+            vm.list = res.list;
+        }); 
+    }
+    getData();
+    
+    
+</script>
+</html>
